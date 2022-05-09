@@ -10,7 +10,6 @@ plugins {
 }
 
 group = "org.example"
-version = "0.0.1-SNAPSHOT"
 
 application {
     mainClass.set("org.example.MainKt")
