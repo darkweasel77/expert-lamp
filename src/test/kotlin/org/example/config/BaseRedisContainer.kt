@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest(classes = [TestRedisConfiguration::class])
-abstract class BaseRedisContainer(
-    @Value("\${spring.redis.port}") val redisPort: Int,
-    @Value("\${spring.redis.host}") val redisHost: String
-) {
+abstract class BaseRedisContainer() {
+    abstract val redisPort: Int
+    abstract val redisHost: String
+
     lateinit var redisClient: RedisClient
     lateinit var redisCommands: RedisCommands<String, String>
 

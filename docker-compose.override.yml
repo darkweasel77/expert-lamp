@@ -5,6 +5,9 @@ services:
     ports:
       - "6379:6379"
   proxy:
+    build:
+      dockerfile: Dockerfile
+      context: ./
     ports:
       - 8080:8080
     depends_on:

@@ -8,10 +8,14 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest(classes = [TestRedisConfiguration::class])
-class RedisServiceTest : BaseRedisContainer(6370, "localhost") {
+@SpringBootTest
+class RedisServiceTest(
+    @Value("\${spring.redis.port}") override val redisPort: Int,
+    @Value("\${spring.redis.host}") override val redisHost: String
+) : BaseRedisContainer() {
 
     @Autowired
     lateinit var redisService: RedisService

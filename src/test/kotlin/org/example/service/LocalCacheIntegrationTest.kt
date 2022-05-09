@@ -8,10 +8,15 @@ import org.example.redis.RedisService
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest(classes = [TestRedisConfiguration::class])
-class LocalCacheIntegrationTest : BaseRedisContainer(6370, "localhost") {
+@SpringBootTest
+class LocalCacheIntegrationTest (
+    @Value("\${spring.redis.port}") override val redisPort: Int,
+    @Value("\${spring.redis.host}") override val redisHost: String
+) : BaseRedisContainer() {
+
     @Autowired
     lateinit var redisService: RedisService
 
