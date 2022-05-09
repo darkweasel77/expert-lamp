@@ -21,13 +21,13 @@ clean:
 redis:
 	$(DC) up -d
 
-test: redis ## Build and test the app
+test: ## Build and test the app
 	docker build . 
 
-build: redis ## Build the container
+build: ## Build the container
 	docker build .
 
-run: ## Run container on port configured in `config.env`
+run: redis ## Run container on port configured in `config.env`
 	docker run -i -t --rm --env-file=./config.env -p=$(PORT):$(PORT)
 
 up: build run ## Run container on port configured in `config.env` (Alias to run)
