@@ -1,0 +1,9 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+
+cache:
+  maximum_size: 10
+  expire_lru_ms: 2000
+  expire_global_ms: 10000
