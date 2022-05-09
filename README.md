@@ -34,6 +34,9 @@ curl `localhost:8080/v1/get/{key}` where key is an int
 * redis library: 4 hours
 * cache: 30min
 * testing: 6 hours (getting embedded redis to work was a challenge)
+* build: 3 hours(building in docker threw some complaints)
 
 ## not implemented
-Upper bound testing; one presumes this project will fall apart if the cache allocated was overly massive, or at least would slow down.
+* Upper bound testing; one presumes this project will fall apart if the cache allocated was overly massive, or at least would slow down.
+* docker build caused some tests to fail that shouldn't; and I didn't really have time to dig into why.
+
